@@ -88,24 +88,13 @@
     /*     >; */
     /* }; */
 
-    /*
-     * 组合键位置编号说明：
-     * key-positions 中的数字代表物理按键的索引，从 0 开始，
-     * 其顺序与 keymap 各层的 bindings 数组以及 matrix transform 中 map 的顺序一致。
-     * 可通过以下 default_layer 的按键列表快速查找对应物理位置：
-     *
-     *  0: DEL   1: Q   2: W   3: E   4: R   5: T
-     *  6: (trans)  7: Y   8: U   9: I   10: O  11: P  12: BSPC
-     * 13: (lt ESC) 14: (lt A) 15: (lt S) 16: (mt D) 17: (mt F) 18: (lt G)
-     * 19: (trans) 20: (trans) 21: (trans) 22: (lt H) 23: (mt J) 24: (mt K) 25: (lt L) 26: (lt ;) 27: (lt RET)
-     * 28: INS  29: Z   30: X   31: C   32: V   33: B
-     * 34: (trans) 35: (trans) 36: N  37: M  38: ,  39: .  40: /  41: PAUSE
-     * 42: LGUI 43: LALT 44: TAB 45: (lt SPACE) 46: RALT 47: RGUI
-     *
-     * 例如，combo_esc 的 key-positions = <0 1> 表示同时按下 DEL（0）和 Q（1）触发 Escape。
-     * 如果要改为 Q+W 触发 Esc，只需将 key-positions 改为 <1 2>。
-     * 注意：组合键是基于物理位置，不受当前层影响；layers 属性可以限制触发的层。
-     */
+    //  0: DEL   1: Q   2: W   3: E   4: R   5: T
+    //  6: (up)  7: Y   8: U   9: I   10: O  11: P  12: BSPC
+    // 13: ESC 14: A 15: S 16: D 17: F 18: G
+    // 19: (left) 20: (press) 21: (right) 22: H 23: J 24: K 25: L 26: (;) 27: RET
+    // 28: INS  29: Z   30: X   31: C   32: V   33: B
+    // 34: (wheel) 35: (down) 36: N  37: M  38: (,)  39: (.)  40: (/)  41: PAUSE
+    // 42: LGUI 43: LALT 44: TAB 45: SPACE 46: RALT 47: RGUI
     combos {
         compatible = "zmk,combos";
         combo_esc {
