@@ -37,7 +37,6 @@
     trigger-period-ms = <16>;
 };
 
-
 / {
     behaviors {
         // td0: td0 {
