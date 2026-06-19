@@ -37,6 +37,10 @@
     trigger-period-ms = <16>;
 };
 
+&i2c0_default {
+    #binding-cells = <0>;
+};
+
 / {
     behaviors {
         // td0: td0 {
