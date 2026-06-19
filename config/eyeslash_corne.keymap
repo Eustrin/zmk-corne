@@ -171,8 +171,6 @@
 //---------   +---------- +---------- +----------      +----------     +----------|  |-------|-------|-------|-------|  |----------   +----------     +----------     +----------  +----------  +----------|
 &kp TILDE     &kp EXCL    &kp AT      &kp HASH         &kp DLLR        &kp PRCNT                     &trans             &kp CARET     &kp AMPS        &kp ASTRK       &kp LPAR     &kp RPAR     &kp PIPE
 //---------   +---------- +---------- +----------      +----------     +----------|  |-------|-------|-------|-------|  |----------   +----------     +----------     +----------  +----------  +----------|
-&kp GRAVE     &kp SQT     &kp DQT     &kp UNDER        &kp MINUS       &kp PLUS              &trans  &trans  &trans     &kp EQUAL     &kp LBKT        &kp RBKT        &kp LBRC     &kp RBRC     &kp BSLH
-//---------   +---------- +---------- +----------      +----------     +----------|  |-------|-------|-------|-------|  |----------   +----------     +----------     +----------  +----------  +----------|
 &lt VI GRAVE  &lt EX SQT  &lt TP DQT  &mt LCTRL UNDER  &mt LSHFT PLUS  &lt FN G              &trans  &trans  &trans     &lt FN EQUAL  &mt RSHFT LBKT  &mt RCTRL RBKT  &lt TP LBRC  &lt EX RBRC  &lt VI BSLH
 //---------   +---------- +---------- +----------      +----------     +----------|  |-------|-------|-------|-------|  |----------   +----------     +----------     +----------  +----------  +----------|
 &kp F12       &kp F1      &kp F2      &kp F3           &kp F4          &kp F5        &trans          &trans             &kp F6        &kp F7          &kp F8          &kp F9       &kp F10      &kp F11
