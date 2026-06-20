@@ -41,6 +41,10 @@
     #binding-cells = <0>;
 };
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS BSPC DEL>; // INS
+}
+
 / {
     behaviors {
         // td0: td0 {
@@ -90,6 +94,17 @@
 
     combos {
         compatible = "zmk,combos";
+
+        combo_lang {
+            layers = <0>; timeout-ms = <50>;
+            key-positions = <44 45>;
+            bindings = <&kp LG(SPACE)>;
+        };
+        combo_capsword {
+            layers = <0>; timeout-ms = <50>;
+            key-positions = <43 46>;
+            bindings = <&caps_word>;
+        };
 
         combo_0 {
             layers = <0>; timeout-ms = <50>;
@@ -163,8 +178,8 @@
             sensor-bindings = <&rsr_vol &rsr_trans>;
         };
 
-        compatible_layer {
-            display-name = "COMPATIBLE";
+        comp_layer {
+            display-name = "COMP";
             bindings = <
 //---------+----------+----------+----------+----------+----------|  |-------|-------|-------|-------|  |----------+----------+----------+----------+----------+----------|
 &kp DEL    &kp Q      &kp W      &kp E      &kp R      &kp T                         &trans             &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
@@ -217,18 +232,17 @@
 //---------+----------+----------    +----------   +----------   +----------|   |-------|-------|-------|-------|  |----------+----------     +----------     +----------      +----------     +----------|
 &kp DEL    &none      &kp C_MUTE     &kp C_VOL_UP  &kp C_VOL_DN  &none                          &trans             &none      &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &msc SCRL_UP    &kp BSPC
 //---------+----------+----------    +----------   +----------   +----------|   |-------|-------|-------|-------|  |----------+----------     +----------     +----------      +----------     +----------|
-&kp ESC    &none      &kp LALT       &kp LCTRL     &kp LSHFT     &none                  &trans  &trans  &trans     &kp APP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none           &kp RET
+&kp ESC    &kp LGUI   &kp LALT       &kp LCTRL     &kp LSHFT     &none                  &trans  &trans  &trans     &kp APP    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp RGUI        &kp RET
 //---------+----------+----------    +----------   +----------   +----------|   |-------|-------|-------|-------|  |----------+----------     +----------     +----------      +----------     +----------|
 &none      &none      &kp C_BRI_MAX  &kp C_BRI_UP  &kp C_BRI_DN  &kp C_BRI_MIN  &trans          &trans             &none      &mkp MB4        &none           &mkp MB5         &msc SCRL_DOWN  &none
 //---------+----------+----------    +----------   +----------   +----------|   |-------|-------|-------|-------|  |----------+----------     +----------     +----------      +----------     +----------|
-                                     &kp LGUI      &mkp MB3      &mkp MB1                                                     &mkp MB2        &kp LALT        &kp RGUI
+                                     &to DF        &mkp MB3      &mkp MB1                                                     &mkp MB2        &kp LALT        &to DF
 //---------+----------+----------    +----------   +----------   +----------|   |-------|-------|-------|-------|  |----------+----------     +----------     +----------      +----------     +----------|
             >;
-            sensor-bindings = <&rsr_vol &rsr_trans>;
         };
 
-        function_layer {
-            display-name = "FUNCTION";
+        func_layer {
+            display-name = "FUNC";
             bindings = <
 //---------+----------+----------+----------+----------+----------|  |-------|-------|-------|-------|  |----------+----------+----------+----------+----------+----------|
 &to SYS    &kp F13    &kp F14    &kp F15    &kp F16    &to MISC                      &trans             &to MISC   &kp F1     &kp F2     &kp F3     &kp F4     &to SYS
@@ -259,20 +273,20 @@
             sensor-bindings = <&rsr_vol &rsr_trans>;
         };
 
-        system_layer { // rgb_ug: RGB Underglow; EFF: Effect forward; EFR: Effect reverse
+        system_layer { // rgb_ug: RGB Underglow; EFF: Effect forward; EFR: Effect reverse; EP: External Power
             display-name = "SYSTEM";
             bindings = <
-//---------     +----------    +----------     +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------      +----------      +----------      +----------      +----------|
-&bootloader     &sys_reset     &studio_unlock  &none          &none          &none                          &trans             &none            &rgb_ug RGB_SPD  &rgb_ug RGB_SPI  &none            &sys_reset       &bootloader
-//---------     +----------    +----------     +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------      +----------      +----------      +----------      +----------|
-&bt BT_CLR_ALL  &bt BT_SEL 0   &bt BT_SEL 1    &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4           &trans  &trans  &trans     &rgb_ug RGB_EFR  &rgb_ug RGB_BRD  &rgb_ug RGB_BRI  &rgb_ug RGB_EFF  &rgb_ug RGB_TOG  &none
-//---------     +----------    +----------     +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------      +----------      +----------      +----------      +----------|
-&soft_off       &bt BT_DISC 0  &bt BT_DISC 1   &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &trans          &trans             &none            &none            &none            &none            &none            &soft_off
-//---------     +----------    +----------     +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------      +----------      +----------      +----------      +----------|
-                                               &to DF         &none          &none                                             &none            &none            &to DF
-//---------     +----------    +----------     +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------      +----------      +----------      +----------      +----------|
+//---------+----------     +----------    +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------        +----------       +----------      +----------      +----------|
+&bootloader&bt BT_CLR_ALL  &bt BT_CLR     &out OUT_BLE   &out OUT_USB   &out OUT_NONE                  &trans             &studio_unlock   &ext_power EP_OFF  &ext_power EP_ON  &none            &rgb_ug RGB_SPI  &bootloader
+//---------+----------     +----------    +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------        +----------       +----------      +----------      +----------|
+&sys_reset &bt BT_SEL 0    &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4           &trans  &trans  &trans     &rgb_ug RGB_EFR  &rgb_ug RGB_BRD    &rgb_ug RGB_BRI   &rgb_ug RGB_EFF  &rgb_ug RGB_TOG  &sys_reset
+//---------+----------     +----------    +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------        +----------       +----------      +----------      +----------|
+&soft_off  &bt BT_DISC 0   &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4  &trans          &trans             &rgb_ug RGB_SPD  &none              &none             &none            &none            &soft_off
+//---------+----------     +----------    +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------        +----------       +----------      +----------      +----------|
+                                          &to DF         &none          &none                                             &none            &none              &to DF
+//---------+----------     +----------    +----------    +----------    +----------|   |-------|-------|-------|-------|  |----------      +----------        +----------       +----------      +----------      +----------|
             >;
-            sensor-bindings = <&rsr_vol &rsr_trans>; // RGB_ON RGB_OFF
+            sensor-bindings = <&rsr_vol &rsr_trans>; // RGB_ON RGB_OFF BT_NXT BT_PRE OUT_TOG; ext_power EP_TOG
         };
 
 // TEMPLATE
