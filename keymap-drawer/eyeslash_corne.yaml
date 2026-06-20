@@ -46,7 +46,7 @@ layers:
   - LGUI
   - $$mdi:apple-keyboard-option$$
   - $$mdi:keyboard-tab$$
-  - '&lt SPACE'
+  - $$mdi:keyboard-space$$
   - $$mdi:apple-keyboard-option$$
   - RGUI
   COMPATIBLE:
@@ -95,7 +95,7 @@ layers:
   - LGUI
   - EXTEND
   - $$mdi:keyboard-tab$$
-  - '&lt SPACE'
+  - $$mdi:keyboard-space$$
   - VISUAL
   - $$mdi:apple-keyboard-option$$
   SYMBOL:
